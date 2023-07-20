@@ -1,0 +1,42 @@
+:root {
+    --light:  rgb(253, 235, 251);
+    --pink:  rgb(239, 12, 110);
+    --dark: rgb(170, 8, 78); 
+    --medium: #a898a9;
+  }
+
+body {
+    background-color:var(--light);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+    
+
+
+h1 {
+    font-size: 42px;
+    font-weight: 700px;
+    color:var(--pink);
+}
+.paragraph {
+    font-size: 35px;
+    color:var(--dark);  
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 992px) {
+    .card {
+      width: 50%;}
+    }
+    @media screen and (max-width: 768px) {
+        .card {
+          width: 100%;}
+        }
