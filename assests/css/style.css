@@ -1,20 +1,23 @@
 :root {
-    --light:  rgb(253, 235, 251);
-    --pink:  rgb(239, 12, 110);
-    --dark: rgb(170, 8, 78); 
-    --medium: #a898a9;
+    --main:  #ffcbf2;
+    --primary-gradient-one: #c8e7ff;
+    --primary-gradient-two: #d0d1ff;
+    --primary-gradient-three: #d8bbff;
+    --secondary: #deaaff;
+    --secondary-gradient-one: #e2afff;
+    --secondary-gradient-two: #e5b3fe;
   }
 
 body {
     background-color:var(--light);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display:flex;
+   
+}
+    
+display:flex;
     flex-wrap:wrap;
     justify-content:center;
     align-items:center;
-}
-    
-
 
 h1 {
     font-size: 42px;
