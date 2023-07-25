@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assests/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="./assests/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Outfit:wght@100&family=Poppins&display=swap" rel="stylesheet">
     <title>Quiz</title>
 </head>
 <body>
@@ -13,16 +13,16 @@
     <h1>Answer the following code-related questions within the time limit provided. 
         Please note that if you answer incorretly ten seconds will be deducted from
         your time/score! Good Luck!</h1> 
-        <button id="start button">Start Quiz</button>
+        <button id="start-button">Start Quiz</button>
     </section>
 
-    <section id="quiz" class="hide"> 
+    <section id="quiz-value" class="hide"> 
         <div>Timer: 
         <span id ="timer"> 0</span>
         </div>
         <div id="question"></div>
         <ul id="options"></ul>
-        <div id="notifications"></div>
+        <div id="notification"></div>
     </section>
 
     <section id="finish-quiz" class="hide">
@@ -34,7 +34,7 @@
         </form>
     </section>
 
-<div id="highscore-section" class="hide">
+<div id="highscore-section">
     <p>Your scores will appear here</p>
     <section id="scoreboard" class="hide"></section>
 </div>
