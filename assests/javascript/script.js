@@ -1,8 +1,8 @@
 // all variables
 var startButton = document.querySelector("#start-button");
 var inputBtn = document.querySelector("#input-btn");
-var quizValue = document.querySelector("#quiz");
-var timer = document.querySelector("#timer");
+var quizValue = document.querySelector("#quiz-value");
+var timeEl = document.querySelector("#timer");
 var questionLine = document.querySelector("#question");
 var answerDiv = document.querySelector("#options");
 var flashNote = document.querySelector("#notification");
@@ -21,7 +21,7 @@ var questionList = [
     "C: A true false value",
     "D: Calling a function",
     ],
-    answer: "Assignment operator",
+    answer: "B: Assignment operator",
 },
 {
     question: "What does an else-if statment do in JavaScript?",
@@ -56,12 +56,12 @@ var questionList = [
 {
     question:"How do you link your CSS sheet to HTML",
     options: [
-        "A:<link rel="stylesheet" type="text/css" href="./css/style.css" />",
-        "B:<link rel="stylesheet" type="text/css" href="./kittens/css/style.css" />",
-        "C: <link rel="stylesheet" type="text/css" href="./assests/style.css" />",
-        "D:<link rel="stylesheet" type="text/css" href="./assests/css/style.css" />",
+        `A:<link rel="stylesheet" type="text/css" href="./css/style.css" />`,
+        `B:<link rel="stylesheet" type="text/css" href="./kittens/css/style.css" />`,
+        `C: <link rel="stylesheet" type="text/css" href="./assests/style.css" />`,
+        `D:<link rel="stylesheet" type="text/css" href="./assests/css/style.css" />`,
     ],
-    answer:"<link rel="stylesheet" type="text/css" href="./assests/css/style.css" />"
+    answer:`<link rel="stylesheet" type="text/css" href="./assests/css/style.css" />`
 },
 {
     question:"How do you get your application to adjust with size changes on different devices",
@@ -90,118 +90,111 @@ var noTime = 100;
 var score = 0;
 var flash;
 var secondsLeft = 100;
-
+// Timer
 function setTime(){
-    var timeInterval = setInterval(() {
-      secondsLeft;
-      noTime--;
+    var timeInterval = setInterval(function(){
+      secondsLeft --;
       timeEl.textContent = secondsLeft + "Count down."; 
       
       if(secondsLeft ===0){
-        clearInterval(timerInterval);
+        clearInterval(timeInterval);
         sendMessage ();
       }
-    }, 1000),
+      if (secondsLeft <= 0) {
+        clearInterval(timeInterval);
+        endGame();
+      }
+    },1000)  
+   
       }
       
-      
-      (noTime <= 0) {
-        clearInterval(timerInerval);
-        endShit();
-      }
-    }, 1000);
-  };
-  var startGame = () => {
-    quizContainer.classList.remove("hide");
-    startYourQuiz();
+ function startGame () { 
+    quizValue.classList.remove("hide");
+    setTime();
     displayQuiz();
   };
-  var displayShit = () => {
+  function displayQuiz () {
     questionLine.textContent = questionList[index].question;
   
     let answerQuestion = questionList[index].options;
-    let theseAnswers = "";
+    let answerLi = "";
     for (var i = 0; i < answerQuestion.length; i++) {
-      theseAnswers += `
+      answerLi += `
           <li>${answerQuestion[i]}</li>           
           `;
-      answerDiv.innerHTML = theseAnswers;
+      answerDiv.innerHTML = answerLi;
     }
   };
   
-  startButton.addEventListener("click", function() {
-    count++;
-  }
+  answerDiv.addEventListener("click", function(event) {
+    event.preventDefault()
     if (event.target.matches("li")) {
       checkAnswer(event.target.textContent);
     }
   });
-  var checkAnswer = (element) => {
-    var correctAnswer = questionlist[index].answer;
-  
+function checkAnswer(element) {
+    var correctAnswer = questionList[index].answer;
+  console.log (correctAnswer, element, score)
     if (element === correctAnswer) {
       clearTimeout(flash)
-      score++;
       flash = setTimeout(function(){
           flashNote.textContent = "Good job"
       },1000)
+      score+=10;
     } else {
       clearTimeout(flash)
-      score--;
-      Timer -= 10;
+      timer -= 10;
       flash = setTimeout(function (){
           flashNote.textContent = "Incorrect"
       })
     }
-  
     index++;
   
-    if (questionlist.length > index) {
-      displayShit();
+    if (questionList.length > index) {
+      displayQuiz();
     } else {
       clearInterval(window.timerInerval);
-      endQuestion();
+      endQuiz();
     }
   };
   
-  const endShit = () => {
+  function endQuiz() {
     endScreen.classList.remove("hide");
   };
   
-  const storeShit = (event) => {
+  function storeInit(event) {
     event.preventDefault();
     const initals = inputBox.value.trim();
-    let scoreShit = JSON.parse(localStorage.getItem("scoreShit")) || [];
+    let scoreQuiz = JSON.parse(localStorage.getItem("scoreQuiz")) || [];
   
-    let newShit = {
+    let newScore = {
       initals: initals,
       score: score,
     };
   
-    scoreShit.push(newShit);
+    scoreQuiz.push(newScore);
   
-    localStorage.setItem("scoreShit", JSON.stringify(scoreShit));
+    localStorage.setItem("scoreQuiz", JSON.stringify(scoreQuiz));
     highScoresSection.classList.remove("hide")
-    coolcatpic.classList.remove("hide");
     inputBox.value = "";
   };
   
-  const showShit = (event) => {
+  function showScore(event) {
     event.preventDefault();
     scoreboard.classList.remove("hide");
-    let showDemScores = JSON.parse(localStorage.getItem("scoreShit")) || [];
-    let shitScores = "";
+    let showDemScores = JSON.parse(localStorage.getItem("scoreQuiz")) || [];
+    let scoresList = "";
     for (var i = 0; i < showDemScores.length; i++) {
-      shitScores += `
+      scoresList += `
         
          <li>${showDemScores[i].initals} --- ${showDemScores[i].score}</li>
           
         `;
   
-      scoreboard.innerHTML = shitScores;
+      scoreboard.innerHTML = scoresList;
     }
   };
   
-  coolcatpic.addEventListener("mouseover", showShit);
-  inputBtn.addEventListener("click", storeShit);
-  startbtn.addEventListener("click", startGame);
+  scoreboard.addEventListener("mouseover", showScore);
+  inputBtn.addEventListener("click", storeInit);
+  startButton.addEventListener("click", startGame);

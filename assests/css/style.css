@@ -85,7 +85,7 @@ box-shadow: 4px 4px 8px var(--secondary-gradient-two);
 }
 
 #options li:hover{
-  box-shadow: 4px 4px 8px var(--primary-gradient-two)
+  box-shadow: 4px 4px 8px var(--primary-gradient-two);
   cursor: pointer;
 }
 #finish-quiz{
