@@ -31,7 +31,7 @@ var questionList = [
         "C: Assists with Conditional Statements ",
         "D: Nothing, it applys to HTML "
     ],
-    answer: "Allows to test for more than 1 condition",
+    answer: "A: Allows to test for more than 1 condition",
 },
 {
     question:"How do you create a new directory in the terminal",
@@ -41,7 +41,7 @@ var questionList = [
         "C: mkdir",
         "D: cd",
     ],
-    answer: "mkdir",
+    answer: "C: mkdir",
 },
 {
     question:"What does box model describe",
@@ -51,17 +51,17 @@ var questionList = [
         "C: Font family possibilities",
         "D: How to place a picture",
     ],
-    answer: "Elemets space occupy on a screen" 
+    answer: "A: Elemets space occupy on a screen" 
 },
 {
-    question:"How do you link your CSS sheet to HTML",
+    question:"Which of the following assists with CSS building",
     options: [
-        `A:<link rel="stylesheet" type="text/css" href="./css/style.css" />`,
-        `B:<link rel="stylesheet" type="text/css" href="./kittens/css/style.css" />`,
-        `C: <link rel="stylesheet" type="text/css" href="./assests/style.css" />`,
-        `D:<link rel="stylesheet" type="text/css" href="./assests/css/style.css" />`,
+        "A: W 3 schools",
+        "B: Google",
+        "C: Bootstrap",
+        "D: Aldi",
     ],
-    answer:`<link rel="stylesheet" type="text/css" href="./assests/css/style.css" />`
+    answer: "C: Bootstrap"
 },
 {
     question:"How do you get your application to adjust with size changes on different devices",
@@ -71,7 +71,7 @@ var questionList = [
         "C: border-box",
         "D: max-width",
     ],
-    answer:"media-screen"
+    answer:"B: media-screen"
 },
 {
     question:"What is one way to style a box in CSS",
@@ -81,10 +81,9 @@ var questionList = [
         "C: Transform",
         "D: Font-weight",
     ],
-    answer:"Transform"
+    answer:"C: Transform"
 },
 ];
-// HELP IM UNWELL
 var index = 0;
 var noTime = 100;
 var score = 0;
